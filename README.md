@@ -12,7 +12,7 @@ Feature selection via recursive removal of the most correlated pair. The feature
 * README.md - the README file, which you are now reading
 * [requirements.txt](https://github.com/daniel-furman/PySDMs/blob/main/requirements.txt) - prerequisites to install this package, used by pip
 * [setup.py](https://github.com/daniel-furman/PySDMs/blob/main/setup.py) - installer script
-* [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/PySDMs)/ - the library code itself
+* [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/src/PySDMs)/ - the library code itself
 * [tests](https://github.com/daniel-furman/PySDMs/tree/main/test)/ - unit tests
 
 ---
