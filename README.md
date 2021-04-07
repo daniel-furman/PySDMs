@@ -8,6 +8,10 @@ Modeling Metrics| Geo-classification of Species Distribution
 :---------------------------------:|:----------------------------------------:
 ![](examples/night_lizards/data/auc.png) | ![](examples/night_lizards/data/range.png)
 
+---
+
+## Package Layout
+
 * [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/src/PySDMs)/ - the library code itself
 * [LICENSE](https://github.com/daniel-furman/PySDMs/blob/main/LICENSE) - the MIT license, which applies to this package
 * README.md - the README file, which you are now reading
