@@ -1,5 +1,6 @@
 ## PySDMs (Python Species Distribution Models). 
 
+---
 
 ### Package Layout
 
@@ -12,13 +13,15 @@
 
 ---
 
-Example of PySDMs output:
+## Example of PySDMs output:
 
 Modeling Metrics| Geo-classification of Species Distribution
 :---------------------------------:|:----------------------------------------:
 ![](examples/night_lizards/data/auc.png) | ![](examples/night_lizards/data/range.png)
 
-### Longer Description:
+---
+
+## Longer Description:
 
 An object-oriented class for Species Distribution Modeling (SDM).
     PySDMs does most of its heavy lifting in the modeling portion of the
@@ -33,15 +36,15 @@ PySDMs was primarily developed for my research project on climate change
 Functions
 -------
 
-   self.fit(): Model training with PyCaret, considering tree-based
+   **self.fit():** Model training with PyCaret, considering tree-based
         methods, neural nets, and best-subset-selection soft voting blends.
         Requires a data-frame with a classification target and numerical
         explanatory features. Returns the voter with the best validation
         metric performance (default metric=F1).
 
-   self.interpolate(): Geo-classification function for model interpolation to
+   **self.interpolate():** Geo-classification function for model interpolation to
         raster feature surfaces. Saves to file both probabilistic and binary
         distribution predictions.
 
-   self.validation_performance(): F1 score and AUC visuals. Oriented for
+   **self.validation_performance():** F1 score and AUC visuals. Oriented for
         PySDMs workflows with multiple runs (see examples).
