@@ -2,6 +2,8 @@
 
 ---
 
+An object-oriented class for ecological Species Distribution Models (SDMs) in Python. 
+
 ### Package Layout
 
 * [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/src/PySDMs)/ - the library code itself
