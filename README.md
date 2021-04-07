@@ -1,4 +1,4 @@
-## PySDMs (Python Species Distribution Models). 
+## PySDMs
 
 ---
 
