@@ -322,8 +322,7 @@ class PySDMs(object):
         # PyImpute geo-spatial classification step
         impute(target_xs, classifier, raster_info, outdir=img_output_dir)
         # Plot the output image
-        interpolation = rasterio.open(img_output_dir + 'probability_' +
-            str(seed) + '.tif')
+        interpolation = rasterio.open(img_output_dir + 'probability_1.tif')
         # Image plotter function
         def plotit(x, title, cmap="Greens"):
             plt.rcParams["figure.figsize"] = (8.2, 5.5)
