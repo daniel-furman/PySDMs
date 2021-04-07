@@ -317,7 +317,7 @@ class PySDMs(object):
 
         # Grab the classifier for the given seed
         with open('outputs/xv_' + str(seed) + '.pkl', 'rb') as f:
-            classifier = pk.load(f)
+            classifier=pk.load(f)
         classifier.fit(train_xs, train_y)
         # PyImpute geo-spatial classification step
         impute(target_xs, classifier, raster_info, outdir=img_output_dir)
@@ -328,7 +328,7 @@ class PySDMs(object):
             plt.rcParams["figure.figsize"] = (8.2, 5.5)
             pylab.imshow(x, cmap=cmap, interpolation='nearest')
             pylab.colorbar()
-            pylab.title(title, fontweight = 'bold')
+            pylab.title(title, fontweight='bold')
             plt.show()
         plotit(interpolation .read(1),'Night Lizard Interpolation (prob.)')
 
@@ -380,7 +380,7 @@ class PySDMs(object):
         y = validation_scores_individual
         x = np.random.normal(1, 0.030, size=len(y))
         plt.plot(x, y, 'r.', alpha=0.35, markersize=11.5)
-        plt.savefig(pycaret_outdir + 'F1_score.png', dpi = 400)
+        plt.savefig(pycaret_outdir + 'F1_score.png', dpi=400)
         plt.show()
 
         # ####################################################################
