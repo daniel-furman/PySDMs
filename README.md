@@ -1,4 +1,4 @@
-## RecFeatureSelect (Recursive Feature Selection). 
+## PySDMs (Python Species Distribution Models). 
 
 Feature selection via recursive removal of the most correlated pair. The feature importance scores are used as the rankings, deciding which variable to drop at each call.
 
@@ -8,12 +8,12 @@ Feature selection via recursive removal of the most correlated pair. The feature
 
 ### Package Layout
 
-* [LICENSE](https://github.com/daniel-furman/RecFeatureSelect/blob/main/LICENSE) - the MIT license, which applies to this package
+* [LICENSE](https://github.com/daniel-furman/PySDMs/blob/main/LICENSE) - the MIT license, which applies to this package
 * README.md - the README file, which you are now reading
-* [requirements.txt](https://github.com/daniel-furman/RecFeatureSelect/blob/main/requirements.txt) - prerequisites to install this package, used by pip
-* [setup.py](https://github.com/daniel-furman/RecFeatureSelect/blob/main/setup.py) - installer script
-* [RecFeatureSelect](https://github.com/daniel-furman/RecFeatureSelect/tree/main/RecFeatureSelect)/ - the library code itself
-* [tests](https://github.com/daniel-furman/RecFeatureSelect/tree/main/test)/ - unit tests
+* [requirements.txt](https://github.com/daniel-furman/PySDMs/blob/main/requirements.txt) - prerequisites to install this package, used by pip
+* [setup.py](https://github.com/daniel-furman/PySDMs/blob/main/setup.py) - installer script
+* [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/PySDMs)/ - the library code itself
+* [tests](https://github.com/daniel-furman/PySDMs/tree/main/test)/ - unit tests
 
 ---
 
