@@ -1,8 +1,7 @@
 # Module: PySDMs
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4/5/21
-
+# Last modified : 4/7/21
 # https://github.com/daniel-furman/PySDMs
 
 import pandas as pd
@@ -22,35 +21,31 @@ import pylab
 class PySDMs(object):
 
     """
-    An object-oriented class for robust Species Distribution Modeling (SDM).
+    An object-oriented class for Species Distribution Modeling (SDM).
     PySDMs does most of its heavy lifting in the modeling portion of the
-    SDM framework, with the interpolate and extrapolate functions simply
-    packaging the geo-classification within the class. The data pre-processing
-    is left out because it is easier to do them in R. See the R scripts
-    included in the Git repository, as well as the bibliography links in the
-    repo's README.md.
+    SDM framework, with the interpolate functions mainly packaging
+    the geo-classification step in an object-oriented mannner. The pre-processing
+    steps of a SDM workflow are left out, primarily because they are easier to
+    do in R (see bib links at the end of the Jupyter notebook in examples/).
 
-    The PySDMs class was developed for my research project on climate change
-    impacts for Joshua tree and Desert Night Lizard ecology. See the
-    two examples in the Git Repo.
+    PySDMs was primarily developed for my research project on climate change
+    impacts for Joshua tree and Desert Night Lizards.
 
     Functions
     -------
 
-    self.pairplots(): Feature exploration with pairplots, comparing
-        different species across the raw environmental features.
-
     self.fit(): Model training with PyCaret, considering tree-based
-        methods, neural nets, and soft voting ensembles of those methods.
-        Requires a data-frame with the classification target and numerical
-        explanatory features.
+        methods, neural nets, and best-subset-selection soft voting blends.
+        Requires a data-frame with a classification target and numerical
+        explanatory features. Returns the voter with the best validation
+        metric performance (default metric=F1).
+
+    self.interpolate(): Geo-classification function for model interpolation to
+        raster feature surfaces. Saves to file both probabilistic and binary
+        distribution predictions.
 
     self.validation_performance(): F1 score and AUC visuals. Oriented for
-        PySDMs workflows with multiple runs (see examples)
-
-    self.interpolate():
-
-    self.extrapolate():
+        PySDMs workflows with multiple runs (see examples).
 
     """
 
@@ -59,7 +54,7 @@ class PySDMs(object):
 
         """
         data: Pandas DataFrame
-            Full data-frame with the classification target variable and the
+            Data-frame with the classification target variable and the
             explanatory features to be included in the model.
 
         seed: int
@@ -122,12 +117,13 @@ class PySDMs(object):
 
         pycaret_outdir: string, default = 'outputs/'
             The directory location for outputs.
+
         deep_learning: bool, default = False
             Whether or not to construct neural nets, recommended to also set
             normalization to True
 
         Returns:
-            The final voter with the best validation metric performance.
+            The voter with the best validation metric performance.
 
         Example
         -------
@@ -270,11 +266,9 @@ class PySDMs(object):
         # Return the final classifier to end the function
         return(self.final_voter)
 
-
     def interpolate(self, asc_input_dir, df_input_dir, img_output_dir, seed):
 
         """
-
         Geo-classification function for model interpolation to raster
         surfaces of the feature variables. Outputs both a probabilistic and
         binary prediction. See PyImpute's README.md for a very basic intro
@@ -344,7 +338,6 @@ class PySDMs(object):
         pycaret_outdir='outputs/'):
 
         """
-
         A function that generates a validation-set F1 score boxplot and a AUC
         ROC analysis plot with CV. The function was developed for visualizing
         performance across multiple runs between consecutive seed ints.
