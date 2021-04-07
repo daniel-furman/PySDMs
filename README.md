@@ -4,7 +4,9 @@
 
 An object-oriented class for ecological Species Distribution Models (SDMs) in Python. 
 
-### Package Layout
+Modeling Metrics| Geo-classification of Species Distribution
+:---------------------------------:|:----------------------------------------:
+![](examples/night_lizards/data/auc.png) | ![](examples/night_lizards/data/range.png)
 
 * [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/src/PySDMs)/ - the library code itself
 * [LICENSE](https://github.com/daniel-furman/PySDMs/blob/main/LICENSE) - the MIT license, which applies to this package
@@ -12,14 +14,6 @@ An object-oriented class for ecological Species Distribution Models (SDMs) in Py
 * [requirements.txt](https://github.com/daniel-furman/PySDMs/blob/main/requirements.txt) - prerequisites to install this package, used by pip
 * [setup.py](https://github.com/daniel-furman/PySDMs/blob/main/setup.py) - installer script
 * [tests](https://github.com/daniel-furman/PySDMs/tree/main/test)/ - unit tests
-
----
-
-## Example of PySDMs output:
-
-Modeling Metrics| Geo-classification of Species Distribution
-:---------------------------------:|:----------------------------------------:
-![](examples/night_lizards/data/auc.png) | ![](examples/night_lizards/data/range.png)
 
 ---
 
