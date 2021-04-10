@@ -6,7 +6,7 @@
 # https://github.com/daniel-furman/PySDMs
 
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 HERE = pathlib.Path(__file__).parent
 # The text of the README file
@@ -22,8 +22,7 @@ setup(
     license="MIT",
     keywords="species-distribution-modeling geo-classification ecological-modeling",
     url="https://github.com/daniel-furman/PySDMs",
-    package_dir={"": "src"},
-    packages=["PySDMs"],
+    packages=find_packages(),
     include_package_data=True,
     install_requires=["numpy", "pandas", "sklearn", "matplotlib", "pycaret",
         "pyimpute", "geopandas", "rasterio"],
