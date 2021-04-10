@@ -3,6 +3,6 @@ pandas==1.1.5
 sklearn==0.23.2
 matplotlib
 pycaret==2.2.3
-geopandas==0.5.1
+geopandas==0.9.0
 rasterio==1.0.27
 pyimpute==0.2
