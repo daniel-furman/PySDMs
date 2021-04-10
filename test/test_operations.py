@@ -21,6 +21,7 @@ test_output = [
     for x in ['outputs/']
 ]
 
+
 def test_PySDMs():
 
     # Simplified class use:
@@ -44,7 +45,7 @@ def test_PySDMs():
     x_vigilis = PySDMs(data, seed, 'pa', 'xv_'+str(seed),
         normalize=False, silent=True, mod_list=mod_list)
 
-        # Model Fitting with self.fit() and model inspection
+    # Model Fitting with self.fit() and model inspection
     learner = x_vigilis.fit()
     x_vigilis.validation_visuals(190, 191, AUC_seed=190)
 
