@@ -1,39 +1,55 @@
 # Module: PySDMs
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4.07.2021
+# Last modified : 4.10.2021
 
+from PySDMs import PySDMs
 import numpy as np
 import pandas as pd
 import os
 
-DATA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+seed = 190
+
+DATA = os.path.dirname(os.path.abspath(__file__))
 test_data = [
     os.path.join(DATA, x)
-    for x in ['feature-correlations-test.csv','feature-importance-test.csv',
-        'raw-data-test.csv', 'cov.csv']]
+    for x in ['data/train-rasters-2.5m/bclim*.asc','data/env_train/env_train_xv_']
+]
 
-# Unit tests for the feature selection algorithm.
-covariance_org = pd.read_csv(test_data[0])
-feature_importance = pd.read_csv(test_data[1])
-threshold = 0.85
-raw_data = pd.read_csv(test_data[2])
-print(covariance_org)
-print(feature_importance)
+test_output = [
+    os.path.join(DATA, x)
+    for x in ['outputs/']
+]
 
-def test_inputs():
-    # First assert that the inputs have the same features (and order)
-    assert np.all(covariance_org.columns == feature_importance.columns)
-    assert list(covariance_org) == list(feature_importance)
+def test_PySDMs():
 
-from RecFeatureSelect import feature_selector
+    # Simplified class use:
+    # Run PySDMs object over random seed of choice
+    # ####################################################################
+    # Data IO
 
-def test_function():
-    # Second, assert that all final correlations are lower than the threshold
-    feature_selector(covariance_org, feature_importance, threshold, raw_data)
-    # Grab the final output
-    cov = pd.read_csv(test_data[3], index_col = "Unnamed: 0")
-    cov = cov.to_numpy()
-    np.fill_diagonal(cov, 0)
-    # did the algorithm remove correlated pairs above the threshold? :
-    assert np.all(cov <= threshold)
+    data = pd.read_csv(test_data[1]+str(seed) + '.csv')
+
+    exp_name = 'xv_'+str(seed)
+    mod_list = ['et', 'rf']
+
+    asc_input_dir = test_data[0]
+    df_input_dir = test_data[1]
+
+
+    # ####################################################################
+    # Class
+
+    # Initialization
+    x_vigilis = PySDMs(data, seed, 'pa', 'xv_'+str(seed),
+        normalize=False, silent=True, mod_list=mod_list)
+
+        # Model Fitting with self.fit() and model inspection
+    learner = x_vigilis.fit()
+    x_vigilis.validation_visuals(190, 191, AUC_seed=190)
+
+    # Geo-classification with self.interpolate()
+    x_vigilis.interpolate(asc_input_dir, df_input_dir, test_output[0], seed)
+
+    # The final output:
+    assert os.path.isfile(test_output[0] + 'probability_1.tif')
