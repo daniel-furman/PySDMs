@@ -1,14 +1,14 @@
 ## PySDMs
 
-**Coast Redwoods** SDM geo-classification (*Sequoia sempervirens*) | Standard deviations from multiple seeds/samples. 
+**Coast redwood** SDM geo-classification (*Sequoia sempervirens*) | Standard deviations from multiple seeds/samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
 
-**Giant Sequioas** SDM geo-classification (*Sequoiadendron giganteum*) | Standard deviations from multiple seeds/samples.
+**Giant sequioa** SDM geo-classification (*Sequoiadendron giganteum*) | Standard deviations from multiple seeds/samples.
 :---------------------------------:|:----------------------------------------:
 ![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/curr-sd.png)
 
-**Joshua Trees** SDM geo-classification (*Yucca brevifolia*) | Standard deviations from multiple seeds/samples. 
+**Joshua tree** SDM geo-classification (*Yucca brevifolia*) | Standard deviations from multiple seeds/samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd2.png)
 
