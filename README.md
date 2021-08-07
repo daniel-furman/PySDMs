@@ -4,15 +4,15 @@
 
 An object-oriented Python class for Species Distribution Models (SDMs). Examples:
 
-**Coast Redwoods** geo-classification (*Sequoia sempervirens*) | Std deviation from multi seeds/background samples. 
+**Coast Redwoods** SDM geo-classification (*Sequoia sempervirens*) | St. deviation from multi seeds/background/grid samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
 
-**Giant Sequioas** geo-classification (*Sequoiadendron giganteum*) | Corresponding validation metrics (blockCV train/test sets). 
+**Giant Sequioas** SDM geo-classification (*Sequoiadendron giganteum*) | St. deviation from multi seeds/background/grid samples.
 :---------------------------------:|:----------------------------------------:
 ![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/)
 
-**Joshua Trees** geo-classification (*Yucca Brevifolia*) | Std deviation from multi seeds/background samples. 
+**Joshua Trees** SDM geo-classification (*Yucca Brevifolia*) | St. deviation from multi seeds/background/grid samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd2.png)
 
