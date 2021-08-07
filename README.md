@@ -8,7 +8,7 @@
 :---------------------------------:|:----------------------------------------:
 ![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/curr-sd.png)
 
-**Joshua Trees** SDM geo-classification (*Yucca Brevifolia*) | Standard deviations from multiple seeds/samples. 
+**Joshua Trees** SDM geo-classification (*Yucca brevifolia*) | Standard deviations from multiple seeds/samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd2.png)
 
