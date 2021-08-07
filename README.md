@@ -2,11 +2,23 @@
 
 ---
 
-An object-oriented class for ecological Species Distribution Models (SDMs) in Python. 
+An object-oriented Python class for Species Distribution Models (SDMs). Examples:
 
-Modeling Metrics| Geo-classification of Species Distribution
+Geo-classification for Coast Redwoods (*Sequoia sempervirens*) | Standard deviation across ~a dozen seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
-![](examples/night_lizards/data/auc.png) | ![](examples/night_lizards/data/range.png)
+![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
+
+Geo-classification for Giant Sequioas (*Sequoia sempervirens*) | Corresponding validation metrics (blockCV train/test sets). 
+:---------------------------------:|:----------------------------------------:
+![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
+
+Geo-classification for Joshua Trees (*Yucca Brevifolia*) | Standard deviation across ~a dozen seeds/background samples.  
+:---------------------------------:|:----------------------------------------:
+![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
+
+Geo-classification for Desert Night Lizards (*Xantusia vigilis*) | Corresponding validation metrics (blockCV train/test sets).
+:---------------------------------:|:----------------------------------------:
+![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
 
 ---
 
@@ -46,5 +58,5 @@ Functions
         raster feature surfaces. Saves to file both probabilistic and binary
         distribution predictions.
 
-   **self.validation_performance():** F1 score and AUC visuals. Oriented for
-        PySDMs workflows with multiple runs (see examples).
+   **self.validation_performance():** Metric scores and AUC visuals on the test set.
+
