@@ -10,11 +10,11 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 
 **Giant Sequioas** geo-classification (*Sequoiadendron giganteum*) | Corresponding validation metrics (blockCV train/test sets). 
 :---------------------------------:|:----------------------------------------:
-![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/auc.png)
+![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/)
 
 **Joshua Trees** geo-classification (*Yucca Brevifolia*) | Std deviation from multi seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
-![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd1.png)
+![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd2.png)
 
 ---
 
