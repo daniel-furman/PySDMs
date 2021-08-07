@@ -14,7 +14,7 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 
 **Joshua Trees** geo-classification (*Yucca Brevifolia*) | Std deviation from multi seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
-![](examples/joshua_trees/curr-jt.png) | ![](examples/joshua_trees/current-sd.png)
+![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/current-sd.png)
 
 **Desert Night Lizards** geo-classification (*Xantusia vigilis*) | Corresponding validation metrics (blockCV train/test sets).
 :---------------------------------:|:----------------------------------------:
