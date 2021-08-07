@@ -4,19 +4,19 @@
 
 An object-oriented Python class for Species Distribution Models (SDMs). Examples:
 
-Geo-classification for **Coast Redwoods** (*Sequoia sempervirens*) | Standard deviation across ~a dozen seeds/background samples. 
+**Coast Redwoods** geo-classification (*Sequoia sempervirens*) | Std deviation from multi seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
 
-Geo-classification for **Giant Sequioas** (*Sequoia sempervirens*) | Corresponding validation metrics (blockCV train/test sets). 
+**Giant Sequioas** geo-classification (*Sequoia sempervirens*) | Corresponding validation metrics (blockCV train/test sets). 
 :---------------------------------:|:----------------------------------------:
 ![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
 
-Geo-classification for **Joshua Trees** (*Yucca Brevifolia*) | Standard deviation across ~a dozen seeds/background samples.  
+**Joshua Trees** geo-classification (*Yucca Brevifolia*) | Std deviation from multi seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
 
-Geo-classification for **Desert Night Lizards** (*Xantusia vigilis*) | Corresponding validation metrics (blockCV train/test sets).
+**Desert Night Lizards** geo-classification (*Xantusia vigilis*) | Corresponding validation metrics (blockCV train/test sets).
 :---------------------------------:|:----------------------------------------:
 ![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
 
