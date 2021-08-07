@@ -2,8 +2,6 @@
 
 ---
 
-An object-oriented Python class for Species Distribution Models (SDMs). Examples:
-
 **Coast Redwoods** SDM geo-classification (*Sequoia sempervirens*) | St. deviation from multi seeds/background/grid samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
@@ -18,6 +16,10 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 
 ---
 
+## Bio
+
+An object-oriented Python class for semi-auto ML geo-classification (running on PyCaret). Compares gradient boosted tree algorithms by default, with options to include soft voters and NNs. Designed for Species Distribution Modeling applications.
+
 ## Package Layout
 
 * [PySDMs](https://github.com/daniel-furman/PySDMs/tree/main/src/PySDMs)/ - the library code itself
@@ -27,11 +29,7 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 * [setup.py](https://github.com/daniel-furman/PySDMs/blob/main/setup.py) - installer script
 * [tests](https://github.com/daniel-furman/PySDMs/tree/main/test)/ - unit tests
 
----
-
-
-Functions
--------
+## Functions
 
    **self.fit():** Model training with PyCaret, considering tree-based
         methods, neural nets, and best-subset-selection soft voting blends.
