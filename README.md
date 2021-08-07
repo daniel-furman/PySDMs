@@ -10,7 +10,7 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 
 **Giant Sequioas** SDM geo-classification (*Sequoiadendron giganteum*) | St. deviation from multi seeds/background/grid samples.
 :---------------------------------:|:----------------------------------------:
-![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/)
+![](examples/giant_sequoias/curr-gs.png) | ![](examples/giant_sequoias/curr-sd.png)
 
 **Joshua Trees** SDM geo-classification (*Yucca Brevifolia*) | St. deviation from multi seeds/background/grid samples. 
 :---------------------------------:|:----------------------------------------:
