@@ -6,6 +6,8 @@
 
 from IPython.display import display, Markdown
 from IPython import get_ipython
+import re
+import os
 
 # Markdown setup
 def md_formatter(md, pp, cycle):
@@ -13,9 +15,13 @@ def md_formatter(md, pp, cycle):
 text_plain = get_ipython().display_formatter.formatters['text/plain']
 text_plain.for_type(Markdown, md_formatter)
 
-from PySDMs.internal.interpolate import interpolate as internal_interpolate
-from PySDMs.internal.validation_visuals import validation_visuals as internal_validation_visuals
-from PySDMs.internal.fit import fit as internal_fit
+#from PySDMs.internal.interpolate import interpolate as internal_interpolate
+exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/interpolate.py').read())
+#from PySDMs.internal.validation_visuals import validation_visuals as internal_validation_visuals
+exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/validation_visuals.py').read())
+#from PySDMs.internal.fit import fit as internal_fit
+exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/fit.py').read())
+
 
 class PySDMs(object):
 
@@ -45,13 +51,18 @@ class PySDMs(object):
     self.validation_performance(): F1 score and AUC visuals. Oriented for
         PySDMs workflows with multiple runs (see examples)."""
 
-    def __init__(self, data, seed, target, exp_name, train_size=0.7,
+    def __init__(self, data, test_data, seed, target, exp_name,
         normalize=True, metric='F1', fold=10, silent=False,
         mod_list = ['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc']):
 
         """data: Pandas DataFrame
             Data-frame with the classification target variable and the
             explanatory features to be included in the model.
+
+        test_data: Pandas DataFrame
+            Data-frame with the classification target variable and the
+            explanatory features to be used for the validation of
+            the model.
 
         seed: int
             The RandomState seed for the experiment.
@@ -62,10 +73,6 @@ class PySDMs(object):
         exp_name: string
             Name that encodes the experiment. A key for recovering the PyCaret
             workflow with pycaret.get_logs(exp_name).
-
-        train_size: int, default = 0.7
-            The ratio of the data to use for training (1-train_size used for
-            hold out validation).
 
         normalize: bool, default = True
             Whether or not to perform standardization via the z-score method
@@ -93,17 +100,19 @@ class PySDMs(object):
 
         # Init Variable Assignment
         self.data = data
+        self.test_data = test_data
         self.target = target
         self.seed = seed
         self.exp_name = exp_name
-        self.train_size = train_size
         self.normalize = normalize
         self.metric = metric
         self.fold = fold
         self.silent = silent
         self.mod_list = mod_list
+        self.species_name = re.split('[_]', exp_name)[0]
+        self.output_dir = 'outputs/'
 
-    def fit(self, pycaret_outdir='outputs/', deep_learning=False):
+    def fit(self, deep_learning=False, soft_voters=False, tuning=True):
 
         """Model training with PyCaret pipelines. Constructs soft voters via
         exhaustive best subset selection among the above BRTs (below mod_list).
@@ -112,23 +121,20 @@ class PySDMs(object):
         validation (F1 score, 30% hold out  default) set and saves the .pkl to
         file alongside the scores.
 
-        pycaret_outdir: string, default = 'outputs/'
-            The directory location for outputs.
-
-        deep_learning: bool, default = False
-            Whether or not to construct neural nets, recommended to also set
-            normalization to True
+        Local fit vars are relatively straightforward True/False that determine
+        which types of models are tried.
 
         Returns:
             The voter with the best validation metric performance."""
 
         # Print a markdown title
         display(Markdown('--- \n ### PyCaret Model Fitting: \n --- ' ))
-        return(internal_fit(self.data, self.seed, self.target, self.exp_name,
-            self.train_size, self.normalize, self.metric, self.fold,
-            self.silent, self.mod_list, pycaret_outdir, deep_learning))
+        return(internal_fit(self.data, self.test_data, self.seed, self.target,
+            self.exp_name, self.normalize, self.metric, self.fold,
+            self.silent, self.mod_list, self.output_dir, deep_learning,
+            soft_voters, tuning))
 
-    def interpolate(self, asc_input_dir, df_input_dir, img_output_dir, seed):
+    def interpolate(self, asc_input_dir, df_input_dir, img_output_dir):
 
         """Geo-classification function for model interpolation to raster
         surfaces of the feature variables. Outputs both a probabilistic and
@@ -156,21 +162,19 @@ class PySDMs(object):
 
         display(Markdown("--- \n ### Geo-classification Interpolation: \n ---"))
         return(internal_interpolate(asc_input_dir, df_input_dir,
-            img_output_dir, seed))
+            img_output_dir, self.seed, self.species_name))
 
-    def validation_visuals(self, F1_min_seed, F1_max_seed, AUC_seed,
-        pycaret_outdir='outputs/'):
+    def validation_visuals(self, min_seed, max_seed):
 
         """A function that generates a validation-set F1 boxplot and a AUC
         ROC analysis plot with CV. The function was developed for visualizing
         performance across multiple runs between consecutive seed ints.
 
-        F1_min_seed/F1_max_seed: int
+        min_seed/max_seed: int
             The min and max seed model runs to grab for the F1 boxplot.
 
         AUC_seed: int
             The seed model run to perform CV ROC analysis."""
 
         display(Markdown('--- \n ### Model Performance Plots: \n ---'))
-        return(internal_validation_visuals(self.data, F1_min_seed, F1_max_seed,
-            AUC_seed, pycaret_outdir))
+        return(internal_validation_visuals(min_seed, max_seed, self.output_dir, self.species_name))
