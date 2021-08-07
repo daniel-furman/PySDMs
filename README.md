@@ -1,7 +1,5 @@
 ## PySDMs
 
----
-
 **Coast Redwoods** SDM geo-classification (*Sequoia sempervirens*) | St. deviation from multi seeds/background/grid samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
@@ -14,7 +12,6 @@
 :---------------------------------:|:----------------------------------------:
 ![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd2.png)
 
----
 
 ## Bio
 
