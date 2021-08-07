@@ -16,10 +16,6 @@ An object-oriented Python class for Species Distribution Models (SDMs). Examples
 :---------------------------------:|:----------------------------------------:
 ![](examples/joshua_trees/curr-jtree.png) | ![](examples/joshua_trees/curr-sd1.png)
 
-**Desert Night Lizards** geo-classification (*Xantusia vigilis*) | Corresponding validation metrics (blockCV train/test sets).
-:---------------------------------:|:----------------------------------------:
-![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
-
 ---
 
 ## Package Layout
