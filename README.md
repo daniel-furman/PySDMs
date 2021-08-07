@@ -4,9 +4,9 @@
 
 An object-oriented Python class for Species Distribution Models (SDMs). Examples:
 
-Geo-classification for Coast Redwoods (*Sequoia sempervirens*) | Standard deviation across ~a dozen seeds/background samples. 
+Geo-classification for **Coast Redwoods** (*Sequoia sempervirens*) | Standard deviation across ~a dozen seeds/background samples. 
 :---------------------------------:|:----------------------------------------:
-![](examples/night_lizards/data/range.png) | ![](examples/night_lizards/data/auc.png)
+![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/curr-cr.png)
 
 Geo-classification for Giant Sequioas (*Sequoia sempervirens*) | Corresponding validation metrics (blockCV train/test sets). 
 :---------------------------------:|:----------------------------------------:
