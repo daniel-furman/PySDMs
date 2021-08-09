@@ -1,7 +1,7 @@
 # Module: PySDMs/internal
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4/10/21
+# Last modified : 8/9/21
 # https://github.com/daniel-furman/PySDMs
 
 import pandas as pd
@@ -13,7 +13,8 @@ import glob
 import pickle as pk
 import pylab
 
-def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed, species_name):
+def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed,
+                         species_name):
 
       """Geo-classification function for model interpolation to raster
       surfaces of the feature variables. Outputs both a probabilistic and
@@ -41,12 +42,8 @@ def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed, spec
 
       # ####################################################################
       # Geo-classification Data IO
-
-      # Raster features (e.g., BioClim).
-      # Make sure the normalization is consistent with the model fitting.
+      
       raster_features = sorted(glob.glob(asc_input_dir))
-
-      # Geo-classification setup
       print('Training features / target shape:\n')
       df = pd.read_csv(df_input_dir + str(seed) + '.csv')
       train_xs = np.array(df.iloc[:,1:len(df)])
@@ -57,18 +54,12 @@ def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed, spec
       # ####################################################################
       # Geospatial Prediction
 
-      # Grab the classifier for the given seed
       with open('outputs/' + species_name + '_' + str(seed) + '.pkl', 'rb') as f:
           classifier=pk.load(f)
       classifier.fit(train_xs, train_y)
-
-      # PyImpute geo-spatial classification step
       impute(target_xs, classifier, raster_info, outdir=img_output_dir)
-
-      # Plot the output image
       interpolation = rasterio.open(img_output_dir + 'probability_1.tif')
       response = rasterio.open(img_output_dir + 'responses.tif')
-
 
       # Image plotter function
       def plotit(x, title, cmap="Greens"):
