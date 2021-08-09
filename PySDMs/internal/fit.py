@@ -1,7 +1,7 @@
 # Module: PySDMs/internal
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4/10/21
+# Last modified : 8/9/21
 # https://github.com/daniel-furman/PySDMs
 
 import pandas as pd
@@ -14,16 +14,12 @@ def internal_fit(data, test_data, seed, target, exp_name, normalize, metric, fol
     silent, mod_list=['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc'],
     pycaret_outdir='outputs/', deep_learning=False, soft_voters=True, tuning=True):
 
-      """Model training with PyCaret. The final model is selected from
-      the best validation metric, with options to set the evaluation set to
-      a test set or to a sample of the development set. The final model backbone
-      is then finalized with 100% of the data for deployment .pkls.
-
-      Some tricks include constructing models with a carefully constructed test
-      sets that mimic deployment data as closely as possible (for SDMs you can
-      try blockCV gridding), HPO for random forest and catboost, and blending
-      into two-model soft voters with best subset selection among all the
-      previously built learners.
+      """Semi-Auto ML classification training with PyCaret, considering tree-based
+        methods, neural nets (on CPU), and two-model soft voters (exhaustive
+        search). Requires a Pandas data-frame with a target and explanatory
+        features. Returns the voter with the best validation
+        metric performance (user-defined metric). See Pycaret.org for more
+        and for customization purposes (classification module).
 
       Returns:
           The learner with the best validation metric performance."""
