@@ -1,7 +1,7 @@
 # Module: PySDMs/internal
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4/10/21
+# Last modified : 8/9/21
 # https://github.com/daniel-furman/PySDMs
 
 import pandas as pd
@@ -14,14 +14,15 @@ import pickle as pk
 def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name):
 
       """A function that generates a validation-set F1 score boxplot and a AUC
-      ROC analysis plot with CV. The function was developed for visualizing
-      performance across multiple runs between consecutive seed ints.
+      ROC analysis plots. The function was developed for visualizing
+      performance across multiple runs through a ML modeling experiment.
 
       min_seed/max_seed: int
           The min and max seed model runs to grab for the F1 boxplot.
 
       AUC_seed: int
           The seed(s) to perform ROC analysis."""
+      
 
       # ####################################################################
       # F1 Validation Scores Data IO
@@ -39,8 +40,7 @@ def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name
               validation_scores_ensemble.iloc[i,:]))
 
       # ####################################################################
-      # Metric Score Hold-Out Set BoxPlot across many runs (as set to the
-      #self.metric type from the modeling call)
+      # Metric Score Hold-Out Set BoxPlots
 
       style.use('ggplot')
       plt.rcParams["figure.figsize"] = (2.25, 5.25)
@@ -55,14 +55,11 @@ def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name
       plt.show()
 
       # ####################################################################
-      # AUC K-fold Cross Validation ROC Plot across many runs with a random
-      # cross validation implementation.
+      # AUC K-fold Cross Validation ROC Plots
 
       style.use('default')
       AUC_seed=np.arange(min_seed, max_seed).tolist()
-
       for AUC_seed in AUC_seed:
-
           # Data IO
           X = pd.read_csv('data/env_train/env_train_'+species_name+'_'+str(AUC_seed)+'.csv')
           y = X['pa']
@@ -104,5 +101,4 @@ def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name
           ax.legend(loc="lower right")
           handles, labels = ax.get_legend_handles_labels()
           ax.legend(handles[-3:], labels[-3:])
-          #plt.savefig(pycaret_outdir + 'ROC_plot.png', dpi = 400)
           plt.show()
