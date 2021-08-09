@@ -41,8 +41,9 @@ class PySDMs(object):
         raster feature surfaces. Saves to file probabilistic and binary
         predictions.
 
-    self.validation_performance(): F1 score and AUC visuals across several
-        random seeds/runs (see example notebooks in the Git Repo)."""
+    self.validation_performance(): Data vizualizations for the user-defined
+        scoring metric (box+whisker) and ROC AUC visuals (10-fold stratified
+        Cross Val) (see example notebooks in the Git Repo)."""
 
     def __init__(self, data, test_data, seed, target, exp_name,
         normalize=True, metric='F1', fold=10, silent=False,
