@@ -9,15 +9,15 @@ from IPython import get_ipython
 import re
 import os
 
-# Markdown setup for notebook environments
+from PySDMs.internal.interpolate import internal_interpolate as internal_interpolate
+from PySDMs.internal.validation_visuals import internal_validation_visuals as internal_validation_visuals
+from PySDMs.internal.fit import internal_fit as internal_fit
+
+# Markdown setup for notebook environment
 def md_formatter(md, pp, cycle):
     pp.text(md.data)
 text_plain = get_ipython().display_formatter.formatters['text/plain']
 text_plain.for_type(Markdown, md_formatter)
-
-from PySDMs.internal.interpolate import internal_interpolate as internal_interpolate
-from PySDMs.internal.validation_visuals import internal_validation_visuals as internal_validation_visuals
-from PySDMs.internal.fit import internal_fit as internal_fit
 
 class PySDMs(object):
 
