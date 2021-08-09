@@ -1,7 +1,7 @@
 # Module: PySDMs
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4/10/21
+# Last modified : 8/9/21
 # https://github.com/daniel-furman/PySDMs
 
 from IPython.display import display, Markdown
@@ -9,47 +9,40 @@ from IPython import get_ipython
 import re
 import os
 
-# Markdown setup
+# Markdown setup for notebook environments
 def md_formatter(md, pp, cycle):
     pp.text(md.data)
 text_plain = get_ipython().display_formatter.formatters['text/plain']
 text_plain.for_type(Markdown, md_formatter)
 
-#from PySDMs.internal.interpolate import interpolate as internal_interpolate
-exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/interpolate.py').read())
-#from PySDMs.internal.validation_visuals import validation_visuals as internal_validation_visuals
-exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/validation_visuals.py').read())
-#from PySDMs.internal.fit import fit as internal_fit
-exec(open('/Users/danielfurman/Desktop/work/projects/DAT:Artathon/code/PySDMs-edit/PySDMs/internal/fit.py').read())
-
+from PySDMs.internal.interpolate import internal_interpolate as internal_interpolate
+from PySDMs.internal.validation_visuals import internal_validation_visuals as internal_validation_visuals
+from PySDMs.internal.fit import internal_fit as internal_fit
 
 class PySDMs(object):
 
-    """An object-oriented class for Species Distribution Modeling (SDM).
-    PySDMs does most of its heavy lifting in the modeling portion of the
-    SDM framework, with the interpolate functions mainly packaging
-    the geo-classification step in an object-oriented manner. The pre-processing
-    steps of a SDM workflow are left out, primarily because they are easier to
-    do in R (see bib links at the end of the Jupyter notebook in examples/).
-
-    PySDMs was primarily developed for my research project on climate change
-    impacts for Joshua tree and Desert Night Lizards.
+    """
+    An object-oriented Python class for semi-auto ML geo-classification 
+    (running on PyCaret). Compares gradient boosted tree algorithms by
+    default, with options to include soft voters and NNs. Designed for
+    Species Distribution Modeling applications.
 
     Functions
     -------
 
-    self.fit(): Model training with PyCaret, considering tree-based
-        methods, neural nets, and best-subset-selection soft voting blends.
-        Requires a data-frame with a classification target and numerical
-        explanatory features. Returns the voter with the best validation
-        metric performance (default metric=F1).
+    self.fit(): Classification training with PyCaret, considering tree-based
+        methods, (CPU) neural nets, and two-model soft voters (exhaustive
+        search). Requires a Pandas data-frame with a target and explanatory
+        features. Returns the voter with the best validation
+        metric performance (user-defined metric). See Pycaret.org for more
+        and for customization purposes (classification module). 
 
-    self.interpolate(): Geo-classification function for model interpolation to
-        raster feature surfaces. Saves to file both probabilistic and binary
-        distribution predictions.
+    self.interpolate(): Geo-classification for model interpolation to
+        raster feature surfaces. Saves to file probabilistic and binary
+        predictions.
 
-    self.validation_performance(): F1 score and AUC visuals. Oriented for
-        PySDMs workflows with multiple runs (see examples)."""
+    self.validation_performance(): F1 score and AUC visuals across several
+        random seeds/runs (see example notebooks in the Git Repo)."""
 
     def __init__(self, data, test_data, seed, target, exp_name,
         normalize=True, metric='F1', fold=10, silent=False,
