@@ -16,10 +16,9 @@ import pylab
 def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed,
                          species_name):
 
-      """Geo-classification function for model interpolation to raster
-      surfaces of the feature variables. Outputs both a probabilistic and
-      binary prediction. See PyImpute's README.md for a very basic intro
-      to geo-classification in Python.
+      """Geo-classification for model interpolation to
+        raster feature surfaces. Saves to file probabilistic and binary
+        predictions.
 
       asc_input_dir, string
           The directory containing your raster surfaces, called in a manner
