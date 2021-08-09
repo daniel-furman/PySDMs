@@ -13,9 +13,9 @@ import pickle as pk
 
 def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name):
 
-      """A function that generates a validation-set F1 score boxplot and a AUC
-      ROC analysis plots. The function was developed for visualizing
-      performance across multiple runs through a ML modeling experiment.
+      """Data vizualizations for the user-defined scoring metric (box+whisker)
+      and ROC AUC visuals (10-fold stratified Cross Val) (see example
+      notebooks in the Git Repo).
 
       min_seed/max_seed: int
           The min and max seed model runs to grab for the F1 boxplot.
