@@ -2,7 +2,7 @@
 
 ## Example 1: DAT/Artathon 2021 Gif DataViz for "EcoRisk Forecasts - California"
 
-<img src="examples/dataartathon/ecorisk-zoo-landscape.gif" align="left" />
+<img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
 
 ## Example 2: Probablistic near-current interpolation with blending (near zero false negatives) and their spatial uncertainty
