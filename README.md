@@ -1,5 +1,11 @@
 ## PySDMs
 
+## Example 1: DAT/Artathon 2021 Gif DataViz for "EcoRisk Forecasts - California"
+
+![](examples/dataartathon/ecorisk-zoo-landscape.gif) 
+
+## Example 2: Probablistic near-current interpolation with blending (near zero false negatives) and their spatial uncertainty
+
 **Coast redwood** SDM geo-classification (*Sequoia sempervirens*) | Standard deviations from multiple seeds/samples. 
 :---------------------------------:|:----------------------------------------:
 ![](examples/coast_redwoods/curr-cr.png) | ![](examples/coast_redwoods/current-sd.png)
