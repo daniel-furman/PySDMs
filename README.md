@@ -5,6 +5,7 @@
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
 <br>
+
 ## Example 2: Probablistic near-current interpolation
 
 * Blending methods boosted model performances to ~ two-zero false negatives per species.
