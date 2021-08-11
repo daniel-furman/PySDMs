@@ -42,8 +42,9 @@ def test_PySDMs():
     # Class
 
     # Initialization
-    x_vigilis = PySDMs(data, seed, 'pa', 'xv_'+str(seed),
-        normalize=False, silent=True, mod_list=mod_list)
+    x_vigilis = PySDMs(data, seed, 'pa', 'xv_'+str(seed), normalize=False,
+                       silent=True, mod_list=mod_list,
+                       pycaret_outdir='test/outputs)
 
     # Model Fitting with self.fit() and model inspection
     learner = x_vigilis.fit()
