@@ -6,14 +6,15 @@
 
 <br>
 
-* Descriptive Stats on Climatic Change at the Above Species Presences:
+* Descriptive Stats for Climatic Change at Species Presences:
 
 
-Bioclimatic Variable | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
+Bioclimatic Feature | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
-bclim1| +22% (+2.86 C) | y% | z%
-bclim12| ~ 0% | y% | z%
-bclim7| +5% | y% | z%
+bclim1 (Temperature Annual Mean) | +22% (~3 C) | +47% (~4 C) | +24% (~4 C)
+bclim7 (Temperature Annual Range) | +5% | +4% | +2%
+bclim14 (Precipitation Driest Month) -1% | -2% | -7%
+
 
 
 <br>
