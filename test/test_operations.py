@@ -3,11 +3,9 @@
 # License: MIT
 # Last modified : 8.11.21
 
-exec(open("/Users/danielfurman/Desktop/PySDMs/PySDMs/_main.py").read())
-#from PySDMs import PySDMs
+from PySDMs import PySDMs
 import numpy as np
 import pandas as pd
-import re
 import os
 
 
