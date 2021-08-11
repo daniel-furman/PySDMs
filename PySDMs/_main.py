@@ -47,7 +47,8 @@ class PySDMs(object):
 
     def __init__(self, data, test_data, seed, target, exp_name,
         normalize=True, metric='F1', fold=10, silent=False,
-        mod_list = ['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc']):
+        mod_list = ['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc'],
+        pycaret_outdir='test/outputs'):
 
         """data: Pandas DataFrame
             Data-frame with the classification target variable and the
@@ -104,7 +105,7 @@ class PySDMs(object):
         self.silent = silent
         self.mod_list = mod_list
         self.species_name = re.split('[_]', exp_name)[0]
-        self.output_dir = 'outputs/'
+        self.output_dir = pycaret_outdir
 
     def fit(self, deep_learning=False, soft_voters=False, tuning=True):
         # ML classification fitting
