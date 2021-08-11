@@ -13,12 +13,12 @@ seed = 190
 DATA = os.path.dirname(os.path.abspath(__file__))
 test_data = [
     os.path.join(DATA, x)
-    for x in ['data/train-rasters-2.5m/bclim*.asc','data/env_train/env_train_xv_']
+    for x in ['test/data/train-rasters-2.5m/bclim*.asc','test/data/env_train/env_train_xv_']
 ]
 
 test_output = [
     os.path.join(DATA, x)
-    for x in ['outputs/']
+    for x in ['test/outputs/']
 ]
 
 
