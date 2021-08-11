@@ -7,8 +7,7 @@
 
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
-
-<br><br>
+---
 
 ### Descriptive Stats for Climatic Change at Species Presences
 
