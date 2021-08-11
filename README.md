@@ -4,6 +4,15 @@
 
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
+* Descriptive Stats on Climatic Change at the Above Species Presences:
+
+Bioclimatic Variable | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
+-----|-------|-------|-------
+bclim1| +22% (+2.86 C) | y% | z%
+bclim12| ~ 0% | y% | z%
+bclim7| +5% | y% | z%
+
+
 <br>
 
 ## Example 2: Probablistic near-current interpolation
