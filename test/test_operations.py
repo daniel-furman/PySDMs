@@ -55,6 +55,6 @@ def test_PySDMs():
 
         # Geo-classification with self.interpolate()
         coastal_redwoods.interpolate(tif_input_dir, df_input_dir, output)
-        coastal_redwoods.validation_visuals(min_seed=seed, max_seed=seed+1, output)
+        coastal_redwoods.validation_visuals(min_seed=seed, max_seed=seed+1, pycaret_outdir=output)
 
     assert os.path.isfile(output + 'probability_1.tif')
