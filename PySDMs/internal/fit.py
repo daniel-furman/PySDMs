@@ -12,7 +12,7 @@ import pickle as pk
 
 def internal_fit(data, test_data, seed, target, exp_name, normalize, metric, fold,
     silent, mod_list=['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc'],
-    pycaret_outdir='outputs/', deep_learning=False, soft_voters=True, tuning=True):
+    pycaret_outdir='test/outputs/', deep_learning=False, soft_voters=True, tuning=True):
 
       """Semi-Auto ML classification training with PyCaret, considering tree-based
         methods, neural nets (on CPU), and two-model soft voters (exhaustive
