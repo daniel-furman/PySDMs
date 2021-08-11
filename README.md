@@ -2,7 +2,9 @@
 
 ## Example 1: "EcoRisk Forecasts - California" for DAT/Artathon 2021
 
+
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
+
 
 <br>
 
