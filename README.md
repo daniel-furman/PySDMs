@@ -4,10 +4,10 @@
 
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
+<br>
+
 * Descriptive Stats on Climatic Change at the Above Species Presences:
 
-<br>
-<br>
 
 Bioclimatic Variable | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
