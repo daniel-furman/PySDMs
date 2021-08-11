@@ -23,7 +23,7 @@ setup(
     url="https://github.com/daniel-furman/PySDMs",
     packages=find_packages(),
     include_package_data=True,
-    package_data={'': ['test/data/env_train/*.csv'], '': ['test/outputs/*.csv']},
+    package_data={'': ['test/data/env_train/*.csv', 'test/outputs/*.csv']},
     install_requires=["numpy", "pandas", "sklearn", "matplotlib", "pycaret",
         "pyimpute", "geopandas", "rasterio"],
     classifiers=[
