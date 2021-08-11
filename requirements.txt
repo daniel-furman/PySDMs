@@ -4,7 +4,7 @@ scikit-learn==0.23.2
 pycaret==2.2.3
 geopandas==0.9.0
 rasterio==1.0.27
-pyimpute==0.2
+pyimpute
 re
 pickle
 matplotlib
