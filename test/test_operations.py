@@ -7,7 +7,7 @@ from PySDMs import PySDMs
 import numpy as np
 import pandas as pd
 import os
-import pycaret
+from pycaret import classification as pycaret, internal
 
 
 def test_PySDMs():
