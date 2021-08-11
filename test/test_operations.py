@@ -1,56 +1,61 @@
 # Module: PySDMs
 # Author: Daniel Ryan Furman <dryanfurman@gmail.com>
 # License: MIT
-# Last modified : 4.10.2021
+# Last modified : 8.11.21
 
-from PySDMs import PySDMs
+exec(open("/Users/danielfurman/Desktop/PySDMs/PySDMs/_main.py").read())
+#from PySDMs import PySDMs
 import numpy as np
 import pandas as pd
+import re
 import os
-
-seed = 190
-
-DATA = os.path.dirname(os.path.abspath(__file__))
-test_data = [
-    os.path.join(DATA, x)
-    for x in ['data/train-rasters-2.5m/bclim*.asc','data/env_train/env_train_xv_']
-]
-
-test_output = [
-    os.path.join(DATA, x)
-    for x in ['outputs/']
-]
 
 
 def test_PySDMs():
 
-    # Simplified class use:
-    # Run PySDMs object over random seed of choice
-    # ####################################################################
-    # Data IO
+    #Data IO
+    DATA = os.path.dirname(os.path.abspath(__file__))
+    data = [
+        os.path.join(DATA, x)
+        for x in ['data/env_train/env_train_cr_192_metadata.csv',
+                  'data/train-rasters/bclim*.tif']
+    ]
+    output = [
+        os.path.join(DATA, x)
+        for x in ['outputs/']][0]
 
-    data = pd.read_csv(test_data[1]+str(seed) + '.csv')
+    # Run PySDMs object over the random seed(s)
+    species_code = 'cr'
 
-    exp_name = 'xv_'+str(seed)
-    mod_list = ['et', 'rf']
+    for seed in [192,]:
 
-    asc_input_dir = test_data[0]
-    df_input_dir = test_data[1]
+        # Data IO
+        df_input_dir = 'data/env_train/env_train_'+species_code+'_'
+        tif_input_dir = data[1]
+        mod_list = ['rf', 'et']
+        col_names = ['pa','bclim7', 'bclim4', 'bclim3', 'bclim2', 'bclim5', 'bclim6',
+           'bclim11', 'bclim8', 'bclim9', 'bclim10', 'bclim15', 'bclim13',
+           'bclim19', 'bclim16', 'bclim12', 'bclim17', 'bclim1', 'bclim18']
 
+        data = pd.read_csv(data[0])
+        exp_name = species_code+'_'+str(seed)
+        train_data = data[(data['fold']!=3) | (data['fold']!=4)][col_names]
+        test_data = data[(data['fold']==3) | (data['fold']==4)][col_names]
+        print()
+        print('test % of total data: ', len(test_data['pa'])/(len(train_data['pa'])+len(test_data['pa'])))
 
-    # ####################################################################
-    # Class
+        # Initialize class
+        coastal_redwoods = PySDMs(train_data, test_data, seed, target='pa',
+                exp_name=species_code+'_'+str(seed), normalize=False, metric='AUC',
+                silent=True, mod_list=mod_list)
 
-    # Initialization
-    x_vigilis = PySDMs(data, seed, 'pa', 'xv_'+str(seed),
-        normalize=False, silent=True, mod_list=mod_list)
+        # Model Fitting with self.fit()
+        learner = coastal_redwoods.fit()
+        pd.Series(pycaret.get_config('X_train').columns).to_csv(output+'features_'+str(seed)+'.csv')
+        assert os.path.isfile(output + 'cr_192.pkl')
 
-    # Model Fitting with self.fit() and model inspection
-    learner = x_vigilis.fit()
-    x_vigilis.validation_visuals(190, 191, AUC_seed=190)
+        # Geo-classification with self.interpolate()
+        coastal_redwoods.interpolate(tif_input_dir, df_input_dir, output)
+        coastal_redwoods.validation_visuals(min_seed=seed, max_seed=seed+1)
 
-    # Geo-classification with self.interpolate()
-    x_vigilis.interpolate(asc_input_dir, df_input_dir, test_output[0], seed)
-
-    # The final output:
-    assert os.path.isfile(test_output[0] + 'probability_1.tif')
+    assert os.path.isfile(output + 'probability_1.tif')

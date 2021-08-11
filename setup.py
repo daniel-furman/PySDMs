@@ -14,13 +14,12 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="PySDMs",
-    version="0.1",
+    version="1.0",
     author="Daniel Ryan Furman",
     author_email="dryanfurman@gmail.com",
-    description=("An object-oriented class for ML geo-classification."),
+    description=("An object-oriented class for semi-Auto ML for geospatial classification tasks."),
     long_description="See documentation at https://github.com/daniel-furman/PySDMs",
     license="MIT",
-    keywords="species-distribution-modeling machine-learning biodiversity",
     url="https://github.com/daniel-furman/PySDMs",
     packages=find_packages(),
     include_package_data=True,
