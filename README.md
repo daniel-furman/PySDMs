@@ -6,6 +6,9 @@
 
 * Descriptive Stats on Climatic Change at the Above Species Presences:
 
+<br>
+<br>
+
 Bioclimatic Variable | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
 bclim1| +22% (+2.86 C) | y% | z%
