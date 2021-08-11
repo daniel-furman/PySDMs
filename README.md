@@ -1,5 +1,8 @@
 ## PySDMs
 
+[![Build Status](https://travis-ci.com/daniel-furman/PySDMs.svg?branch=main)](https://travis-ci.com/daniel-furman/PySDMs)
+
+
 ---
 
 ## Example 1: "EcoRisk Forecasts - California" for DAT/Artathon 2021
