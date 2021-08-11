@@ -9,13 +9,9 @@ from IPython import get_ipython
 import re
 import os
 
-#from PySDMs.internal.interpolate import internal_interpolate as internal_interpolate
-#from PySDMs.internal.validation_visuals import internal_validation_visuals as internal_validation_visuals
-#from PySDMs.internal.fit import internal_fit as internal_fit
-exec(open("/Users/danielfurman/Desktop/PySDMs/PySDMs/internal/fit.py").read())
-exec(open("/Users/danielfurman/Desktop/PySDMs/PySDMs/internal/interpolate.py").read())
-exec(open("/Users/danielfurman/Desktop/PySDMs/PySDMs/internal/validation_visuals.py").read())
-
+from PySDMs.internal.interpolate import internal_interpolate as internal_interpolate
+from PySDMs.internal.validation_visuals import internal_validation_visuals as internal_validation_visuals
+from PySDMs.internal.fit import internal_fit as internal_fit
 
 # Markdown setup for notebook environment
 #def md_formatter(md, pp, cycle):
