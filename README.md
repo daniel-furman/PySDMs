@@ -10,14 +10,15 @@
 
 Descriptive Stats for Climatic Change at Species Presences
 
-* SSP 370 [CMIP6]:
+* SSP 370 [CMIP6](https://www.worldclim.org/data/cmip6/cmip6climate.html) models for the IPCC6 report.
+* Bioclimatic Features from [WorldClim2](https://www.worldclim.org/data/worldclim21.html)
+* Species presences from GBIF and carefully cleaned
 
-
-Bioclimatic Feature | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change | Feature
+Bioclimatic Var | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
-bclim1 (Temperature Annual Mean) | +22% | +47% | +24%
-bclim7 (Temperature Annual Range) | +5% | +4% | +2%
-bclim14 (Precipitation Driest Month) -1% | -2% | -7%
+Temperature Annual Mean | +22% | +47% | +24%
+Temperature Annual Range | +5% | +4% | +2%
+Precipitation Driest Month | -1% | -2% | -7%
 
 
 
