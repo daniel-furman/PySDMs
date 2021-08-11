@@ -1,14 +1,16 @@
 ## PySDMs
 
+---
+
 ## Example 1: "EcoRisk Forecasts - California" for DAT/Artathon 2021
 
 
 <img src="examples/datartathon/ecorisk-zoo-landscape.gif" align="left" />
 
 
-<br>
+<br><br>
 
-Descriptive Stats for Climatic Change at Species Presences
+### Descriptive Stats for Climatic Change at Species Presences
 
 * SSP 370 [CMIP6](https://www.worldclim.org/data/cmip6/cmip6climate.html) models for the IPCC6 report.
 * Bioclimatic Features from [WorldClim2](https://www.worldclim.org/data/worldclim21.html)
@@ -19,8 +21,6 @@ Bioclimatic Var | Coast redwood % Change | Giant sequoia % Change | Joshua tree 
 Temperature Annual Mean | +22% | +47% | +24%
 Temperature Annual Range | +5% | +4% | +2%
 Precipitation Driest Month | -1% | -2% | -7%
-
-
 
 <br>
 
