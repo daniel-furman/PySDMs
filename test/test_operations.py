@@ -7,6 +7,7 @@ from PySDMs import PySDMs
 import numpy as np
 import pandas as pd
 import os
+import pycaret
 
 
 def test_PySDMs():
