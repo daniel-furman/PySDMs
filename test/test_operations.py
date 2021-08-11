@@ -15,12 +15,12 @@ def test_PySDMs():
     DATA = os.path.dirname(os.path.abspath(__file__))
     data = [
         os.path.join(DATA, x)
-        for x in ['test/data/env_train/env_train_cr_192_metadata.csv',
-                  'test/data/train-rasters/bclim*.tif']
+        for x in ['data/env_train/env_train_cr_192_metadata.csv',
+                  'data/train-rasters/bclim*.tif']
     ]
     output = [
         os.path.join(DATA, x)
-        for x in ['test/outputs/']][0]
+        for x in ['outputs/']][0]
 
     # Run PySDMs object over the random seed(s)
     species_code = 'cr'
