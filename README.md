@@ -12,7 +12,7 @@
 
 ### Descriptive Stats for Climatic Change at Species Presences:
 
-Bioclimatic Var | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
+Bioclimatic Variable  | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
 Temperature Annual Mean | +22% | +47% | +24%
 Temperature Annual Range | +5% | +4% | +2%
