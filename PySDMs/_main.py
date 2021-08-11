@@ -126,7 +126,7 @@ class PySDMs(object):
         return(internal_interpolate(asc_input_dir, df_input_dir,
             img_output_dir, self.seed, self.species_name))
 
-    def validation_visuals(self, min_seed, max_seed):
+    def validation_visuals(self, min_seed, max_seed, pycaret_outdir):
         # Dataviz for model fitting
         #display(Markdown('--- \n ### Model Performance Plots: \n ---'))
         return(internal_validation_visuals(min_seed, max_seed, self.output_dir, self.species_name))
