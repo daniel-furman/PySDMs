@@ -29,7 +29,7 @@ def test_PySDMs():
     for seed in [192,]:
 
         # Data IO
-        df_input_dir = 'test/data/env_train/env_train_'+species_code+'_'
+        df_input_dir = 'internal/test/data/env_train/env_train_'+species_code+'_'
         tif_input_dir = data[1]
         mod_list = ['rf', 'et']
         col_names = ['pa','bclim7', 'bclim4', 'bclim3', 'bclim2', 'bclim5', 'bclim6',
