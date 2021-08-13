@@ -48,7 +48,7 @@ class PySDMs(object):
     def __init__(self, data, test_data, seed, target, exp_name,
         normalize=True, metric='F1', fold=10, silent=False,
         mod_list = ['et', 'catboost', 'rf', 'lightgbm', 'xgboost', 'gbc'],
-        pycaret_outdir='test/outputs/'):
+        pycaret_outdir='internal/test/outputs/'):
 
         """data: Pandas DataFrame
             Data-frame with the classification target variable and the
