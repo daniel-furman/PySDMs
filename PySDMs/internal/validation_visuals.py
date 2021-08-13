@@ -61,7 +61,7 @@ def internal_validation_visuals(min_seed, max_seed, pycaret_outdir, species_name
       AUC_seed=np.arange(min_seed, max_seed).tolist()
       for AUC_seed in AUC_seed:
           # Data IO
-          X = pd.read_csv('test/data/env_train/env_train_'+species_name+'_'+str(AUC_seed)+'.csv')
+          X = pd.read_csv('internal/test/data/env_train/env_train_'+species_name+'_'+str(AUC_seed)+'.csv')
           y = X['pa']
           X = X.drop(['pa'], axis=1)
           X = pd.DataFrame(sklearn.preprocessing.StandardScaler(
