@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/daniel-furman/PySDMs.svg?branch=pypi-updates)](https://travis-ci.com/daniel-furman/PySDMs)
 
+from PySDMs import PySDMs
 
 ---
 
