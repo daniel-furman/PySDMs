@@ -53,7 +53,7 @@ def internal_interpolate(asc_input_dir, df_input_dir, img_output_dir, seed,
       # ####################################################################
       # Geospatial Prediction
 
-      with open('internal/test/outputs/' + species_name + '_' + str(seed) + '.pkl', 'rb') as f:
+      with open('test/outputs/' + species_name + '_' + str(seed) + '.pkl', 'rb') as f:
           classifier=pk.load(f)
       classifier.fit(train_xs, train_y)
       impute(target_xs, classifier, raster_info, outdir=img_output_dir)
