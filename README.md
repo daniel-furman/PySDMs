@@ -14,7 +14,7 @@
 
 <br>
 
-### Descriptive Stats for Climatic Change at Species Presences:
+### Descriptive Stats for Climatic Change between 1985 to 2070 at Species Presences:
 
 Bioclimatic Variable  | Coast redwood % Change | Giant sequoia % Change | Joshua tree % Change
 -----|-------|-------|-------
